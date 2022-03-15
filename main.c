@@ -2,9 +2,16 @@
 
 int main (){
 
-  tabuleiro();
-  getchar();
-  
+  int **tabuleiro;
+
+  tabuleiro = criar_tabuleiro();
+
+  preenche_tabuleiro(tabuleiro, 1);
+
+  imprime_tabuleiro(tabuleiro);
+
+  desolcar_tabuleiro(tabuleiro);
+
   return 0;
 
 }
