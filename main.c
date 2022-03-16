@@ -2,16 +2,16 @@
 
 int main (){
 
-  int **tabuleiro;
+    int **tabuleiro;
 
-  tabuleiro = criar_tabuleiro();
+    tabuleiro = criar_tabuleiro();
 
-  preenche_tabuleiro(tabuleiro, 1);
+    preenche_tabuleiro(tabuleiro, 1);
 
-  imprime_tabuleiro(tabuleiro);
+    imprime_tabuleiro(tabuleiro);
 
-  desalocar_tabuleiro(tabuleiro);
+    desalocar_tabuleiro(tabuleiro);
 
-  return 0;
+    return 0;
 
 }
