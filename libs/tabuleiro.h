@@ -12,7 +12,7 @@
 
 const int espaco_vazio = 0;
 const int player = 1;
-const int elemento = 2;
+const int obstaculo = 2;
 const int chegada = 3;
 
 // Cria o tabuleiro dinamicamente colocando 0 em todas as posições
@@ -46,14 +46,14 @@ void preenche_tabuleiro(int **tabuleiro, int fase){
     tabuleiro[7][7] = chegada;
     switch(fase){
       case 1:
-        tabuleiro[2][1] = elemento;
-        tabuleiro[2][2] = elemento;
-        tabuleiro[0][5] = elemento;
-        tabuleiro[1][5] = elemento;
-        tabuleiro[5][0] = elemento;
-        tabuleiro[6][0] = elemento;
-        tabuleiro[5][6] = elemento;
-        tabuleiro[5][7] = elemento;
+        tabuleiro[2][1] = obstaculo;
+        tabuleiro[2][2] = obstaculo;
+        tabuleiro[0][5] = obstaculo;
+        tabuleiro[1][5] = obstaculo;
+        tabuleiro[5][0] = obstaculo;
+        tabuleiro[6][0] = obstaculo;
+        tabuleiro[5][6] = obstaculo;
+        tabuleiro[5][7] = obstaculo;
       break;
     }
   }
@@ -79,7 +79,7 @@ void imprime_tabuleiro(int **tabuleiro){
         printf("   ");
       }else if(tabuleiro[linhas][colunas] == player){
         printf(" P ");
-      }else if(tabuleiro[linhas][colunas] == elemento){
+      }else if(tabuleiro[linhas][colunas] == obstaculo){
         printf(" X ");
       }else if(tabuleiro[linhas][colunas] == chegada){
         printf(" O ");
@@ -96,7 +96,7 @@ void imprime_tabuleiro(int **tabuleiro){
 }
 
 // Desaloca o tabuleiro criado na memoria.
-void desolcar_tabuleiro(int **tabuleiro){
+void desalocar_tabuleiro(int **tabuleiro){
   
   int linhas;
 

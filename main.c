@@ -10,7 +10,7 @@ int main (){
 
   imprime_tabuleiro(tabuleiro);
 
-  desolcar_tabuleiro(tabuleiro);
+  desalocar_tabuleiro(tabuleiro);
 
   return 0;
 
