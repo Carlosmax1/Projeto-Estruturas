@@ -7,6 +7,7 @@ int main (){
     Fila *f;
 
     f = (Fila*) malloc (sizeof(Fila));
+    jg = (Player*) malloc (sizeof(Player));
 
     iniciar_fila(f);
 
@@ -25,6 +26,7 @@ int main (){
     //atualizar_tabuleiro(tabuleiro, jg);
     desalocar_tabuleiro(tabuleiro);
 
+    free(jg);
     free(f);
 
     return 0;
