@@ -200,6 +200,25 @@ void comandos(Fila *f, int **tabuleiro, int fase){
     }while(op != 0);
 }
 
+void atualizar_tabuleiro(int **tabuleiro, Player *jg){
+  tabuleiro[jg->pos1][jg->pos2] = 1;
+  imprime_tabuleiro(tabuleiro);
+
+}
+
+void exibir_direcao(Player *jg){
+
+  if(jg->direcao == 1){
+    printf("\n\n\t\t\t\t\t\t[ P > ]\n\n");
+  }else if(jg->direcao == 2){
+    printf("\n\n\t\t\t\t\t\t[ P V ]\n\n");
+  }else if(jg->direcao == 3){
+    printf("\n\n\t\t\t\t\t\t[ P < ]\n\n");
+  }else{
+    printf("\n\n\t\t\t\t\t\t[ P ꓥ ]\n\n");
+  }
+}
+
 void move_player(int **tabuleiro, Player *jg, Fila *ptr){
 
   NO *aux;
@@ -285,23 +304,4 @@ void move_player(int **tabuleiro, Player *jg, Fila *ptr){
     }
     aux = aux ->prox;
   }while(aux != NULL);
-}
-
-void atualizar_tabuleiro(int **tabuleiro, Player *jg){
-  tabuleiro[jg->pos1][jg->pos2] = 1;
-  imprime_tabuleiro(tabuleiro);
-
-}
-
-void exibir_direcao(Player *jg){
-
-  if(jg->direcao == 1){
-    printf("\n\n\t\t\t\t\t\t[ P > ]\n\n");
-  }else if(jg->direcao == 2){
-    printf("\n\n\t\t\t\t\t\t[ P V ]\n\n");
-  }else if(jg->direcao == 3){
-    printf("\n\n\t\t\t\t\t\t[ P < ]\n\n");
-  }else{
-    printf("\n\n\t\t\t\t\t\t[ P ꓥ ]\n\n");
-  }
 }

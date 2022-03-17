@@ -25,5 +25,7 @@ int main (){
     //atualizar_tabuleiro(tabuleiro, jg);
     desalocar_tabuleiro(tabuleiro);
 
+    free(f);
+
     return 0;
 }
