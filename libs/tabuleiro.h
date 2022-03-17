@@ -32,13 +32,13 @@ int** criar_tabuleiro(){
 }
 
 // Preenche o tabuleiro de acordo com a fase.
-void preenche_tabuleiro(int **tabuleiro, int fase, Player *player){
+void preenche_tabuleiro(int **tabuleiro, int fase){
 
     if(!tabuleiro){
       printf("\nERRO no Tabuleiro");
       return;
     }else{
-      tabuleiro[player->pos1][player->pos2] = 1;
+      tabuleiro[0][0] = 1;
       tabuleiro[7][7] = chegada;
       switch(fase){
         case 1:
@@ -131,6 +131,7 @@ void imprime_tabuleiro(int **tabuleiro){
       printf("|---");
     }
     printf("|\n");
+    getchar();
 }
 
 void show_fase(int **tabuleiro, int fase){
@@ -199,24 +200,14 @@ void comandos(Fila *f, int **tabuleiro, int fase){
     }while(op != 0);
 }
 
-void move_player(int **tabuleiro, Player *player){
+void move_player(int **tabuleiro, Player *jg){
+  tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+  jg->pos2 = jg->pos2 + 1;
+  jg->pos2 = jg->pos2 + 1;
+}
 
-  system("cls||clear");
-
-  if(!tabuleiro){
-    printf("\nERRO no tabuleiro");
-    return;
-  }else{
-    tabuleiro[player->pos1][player->pos2] = ' '; 
-    if(player->direcao == 1){
-      player->pos2 = player->pos2 + 1;
-    }else if(player->direcao == 2){
-      player->pos2 = player->pos2 - 1;
-    }else if (player->direcao == 3){
-      player->pos1 = player->pos1 - 1;
-    }else if(player->direcao == 4){
-      player->pos1 = player->pos1 + 1;
-    }
-  }
+void atualizar_tabuleiro(int **tabuleiro, Player *jg){
+  tabuleiro[jg->pos1][jg->pos2] = 1;
+  imprime_tabuleiro(tabuleiro);
 
 }
