@@ -1,4 +1,5 @@
 #include "Fila_Dinamica.h"
+#include "jogador.h"
 
 #define TAM 8;
 
@@ -10,7 +11,6 @@
 */
 
 const int espaco_vazio = 0;
-const int player = 1;
 const int obstaculo = 2;
 const int chegada = 3;
 
@@ -32,13 +32,13 @@ int** criar_tabuleiro(){
 }
 
 // Preenche o tabuleiro de acordo com a fase.
-void preenche_tabuleiro(int **tabuleiro, int fase){
+void preenche_tabuleiro(int **tabuleiro, int fase, Player *player){
 
     if(!tabuleiro){
       printf("\nERRO no Tabuleiro");
       return;
     }else{
-      tabuleiro[0][0] = player;
+      tabuleiro[player->pos1][player->pos2] = 1;
       tabuleiro[7][7] = chegada;
       switch(fase){
         case 1:
@@ -53,25 +53,49 @@ void preenche_tabuleiro(int **tabuleiro, int fase){
         break;
 
         case 2:
-          tabuleiro[2][3] = obstaculo;
+          tabuleiro[2][0] = obstaculo;
+          tabuleiro[2][1] = obstaculo;
           tabuleiro[2][2] = obstaculo;
+          tabuleiro[1][4] = obstaculo;
           tabuleiro[2][4] = obstaculo;
-          tabuleiro[1][5] = obstaculo;
-          tabuleiro[5][0] = obstaculo;
+          tabuleiro[1][6] = obstaculo;
+          tabuleiro[1][7] = obstaculo;
+          tabuleiro[4][4] = obstaculo;
+          tabuleiro[5][3] = obstaculo;
+          tabuleiro[5][4] = obstaculo;
           tabuleiro[6][0] = obstaculo;
-          tabuleiro[5][6] = obstaculo;
+          tabuleiro[6][1] = obstaculo;
           tabuleiro[5][7] = obstaculo;
+          tabuleiro[6][7] = obstaculo;
+          tabuleiro[7][4] = obstaculo;
+          tabuleiro[7][5] = obstaculo;
         break;
 
         case 3:
+          tabuleiro[0][1] = obstaculo;
           tabuleiro[1][1] = obstaculo;
-          tabuleiro[1][2] = obstaculo;
-          tabuleiro[1][3] = obstaculo;
-          tabuleiro[1][5] = obstaculo;
-          tabuleiro[5][0] = obstaculo;
+          tabuleiro[2][1] = obstaculo;
+          tabuleiro[0][3] = obstaculo;
+          tabuleiro[0][4] = obstaculo;
+          tabuleiro[0][5] = obstaculo;
+          tabuleiro[0][7] = obstaculo;
+          tabuleiro[1][7] = obstaculo;
+          tabuleiro[2][7] = obstaculo;
+          tabuleiro[2][3] = obstaculo;
+          tabuleiro[2][4] = obstaculo;
+          tabuleiro[3][3] = obstaculo;
+          tabuleiro[4][0] = obstaculo;
+          tabuleiro[4][1] = obstaculo;
+          tabuleiro[4][2] = obstaculo;
           tabuleiro[6][0] = obstaculo;
-          tabuleiro[5][6] = obstaculo;
+          tabuleiro[6][1] = obstaculo;
+          tabuleiro[6][2] = obstaculo;
+          tabuleiro[4][6] = obstaculo;
+          tabuleiro[4][5] = obstaculo;
           tabuleiro[5][7] = obstaculo;
+          tabuleiro[7][4] = obstaculo;
+          tabuleiro[7][5] = obstaculo;
+          tabuleiro[6][5] = obstaculo;
         break;
     }
   }
@@ -93,7 +117,7 @@ void imprime_tabuleiro(int **tabuleiro){
         printf("|");
         if(tabuleiro[linhas][colunas] == espaco_vazio){
           printf("   ");
-        }else if(tabuleiro[linhas][colunas] == player){
+        }else if(tabuleiro[linhas][colunas] == 1){
           printf(" P ");
         }else if(tabuleiro[linhas][colunas] == obstaculo){
           printf(" X ");
@@ -173,4 +197,26 @@ void comandos(Fila *f, int **tabuleiro, int fase){
     getchar();
 
     }while(op != 0);
+}
+
+void move_player(int **tabuleiro, Player *player){
+
+  system("cls||clear");
+
+  if(!tabuleiro){
+    printf("\nERRO no tabuleiro");
+    return;
+  }else{
+    tabuleiro[player->pos1][player->pos2] = ' '; 
+    if(player->direcao == 1){
+      player->pos2 = player->pos2 + 1;
+    }else if(player->direcao == 2){
+      player->pos2 = player->pos2 - 1;
+    }else if (player->direcao == 3){
+      player->pos1 = player->pos1 - 1;
+    }else if(player->direcao == 4){
+      player->pos1 = player->pos1 + 1;
+    }
+  }
+
 }
