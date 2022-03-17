@@ -4,14 +4,26 @@ int main (){
 
     int **tabuleiro;
 
+//Inicio do tabuleiro 1
+    system("cls||clear");
+
     tabuleiro = criar_tabuleiro();
 
-    preenche_tabuleiro(tabuleiro, 1);
+    show_fase(tabuleiro, 1);
 
-    imprime_tabuleiro(tabuleiro);
+//Inicio do tabuleiro 2
+    system("cls||clear");
 
-    desalocar_tabuleiro(tabuleiro);
+    tabuleiro = criar_tabuleiro();
+
+    show_fase(tabuleiro, 2);
+
+//Inicio do tabuleiro 3
+    system("cls||clear");
+
+    tabuleiro = criar_tabuleiro();
+
+    show_fase(tabuleiro, 3);
 
     return 0;
-
 }

@@ -55,6 +55,28 @@ void preenche_tabuleiro(int **tabuleiro, int fase){
           tabuleiro[5][6] = obstaculo;
           tabuleiro[5][7] = obstaculo;
         break;
+
+        case 2:
+          tabuleiro[2][3] = obstaculo;
+          tabuleiro[2][2] = obstaculo;
+          tabuleiro[2][4] = obstaculo;
+          tabuleiro[1][5] = obstaculo;
+          tabuleiro[5][0] = obstaculo;
+          tabuleiro[6][0] = obstaculo;
+          tabuleiro[5][6] = obstaculo;
+          tabuleiro[5][7] = obstaculo;
+        break;
+
+        case 3:
+          tabuleiro[1][1] = obstaculo;
+          tabuleiro[1][2] = obstaculo;
+          tabuleiro[1][3] = obstaculo;
+          tabuleiro[1][5] = obstaculo;
+          tabuleiro[5][0] = obstaculo;
+          tabuleiro[6][0] = obstaculo;
+          tabuleiro[5][6] = obstaculo;
+          tabuleiro[5][7] = obstaculo;
+        break;
     }
   }
 }
@@ -62,12 +84,12 @@ void preenche_tabuleiro(int **tabuleiro, int fase){
 // Imprime o tabuleiro com a fase completa.
 void imprime_tabuleiro(int **tabuleiro){
 
-  system("cls||clear");
+  //system("cls||clear");
 
     int linhas;
     int colunas;
     int i;
-  
+    
     for(linhas = 0; linhas < TAM linhas++){
       for(i = 0; i < TAM i++){
         printf("|---");
@@ -95,6 +117,36 @@ void imprime_tabuleiro(int **tabuleiro){
     getchar();
 }
 
+void show_fase(int **tabuleiro, int fase){
+
+    preenche_tabuleiro(tabuleiro, fase);
+
+    printf("\t\t\t\t\t\tSentido do player no tabuleiro: [ P > ]\n\n");
+    printf("\t\t\t\t\t\tComandos:\n");
+    printf("\t\t\t\t\t\t1) X X X\n");
+    
+    switch(fase){
+        case 1:
+          printf("Tabuleiro da primeira fase:");
+        break;
+        
+        case 2:
+          printf("Tabuleiro da segunda fase:");
+        break;
+        
+        case 3:
+          printf("Tabuleiro da terceira fase:");
+        break;
+    }
+    printf("\t\t\t2) X X X \n");
+    printf("\t\t\t\t\t\t3) X X X \n");
+    printf("\t\t\t\t\t\t4) X X X \n");
+
+    imprime_tabuleiro(tabuleiro);
+
+    desalocar_tabuleiro(tabuleiro);
+}
+
 // Desaloca o tabuleiro criado na memoria.
 void desalocar_tabuleiro(int **tabuleiro){
   
@@ -105,5 +157,4 @@ void desalocar_tabuleiro(int **tabuleiro){
     }
 
     free(tabuleiro);
-
 }
