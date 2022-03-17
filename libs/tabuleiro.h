@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "Fila_Dinamica.h"
 
 #define TAM 8;
 
@@ -34,9 +33,6 @@ int** criar_tabuleiro(){
 
 // Preenche o tabuleiro de acordo com a fase.
 void preenche_tabuleiro(int **tabuleiro, int fase){
-
-    int linhas;
-    int colunas;
 
     if(!tabuleiro){
       printf("\nERRO no Tabuleiro");
@@ -84,8 +80,6 @@ void preenche_tabuleiro(int **tabuleiro, int fase){
 // Imprime o tabuleiro com a fase completa.
 void imprime_tabuleiro(int **tabuleiro){
 
-  //system("cls||clear");
-
     int linhas;
     int colunas;
     int i;
@@ -113,13 +107,9 @@ void imprime_tabuleiro(int **tabuleiro){
       printf("|---");
     }
     printf("|\n");
-
-    getchar();
 }
 
 void show_fase(int **tabuleiro, int fase){
-
-    preenche_tabuleiro(tabuleiro, fase);
 
     printf("\t\t\t\t\t\tSentido do player no tabuleiro: [ P > ]\n\n");
     printf("\t\t\t\t\t\tComandos:\n");
@@ -143,8 +133,6 @@ void show_fase(int **tabuleiro, int fase){
     printf("\t\t\t\t\t\t4) X X X \n");
 
     imprime_tabuleiro(tabuleiro);
-
-    desalocar_tabuleiro(tabuleiro);
 }
 
 // Desaloca o tabuleiro criado na memoria.
@@ -157,4 +145,32 @@ void desalocar_tabuleiro(int **tabuleiro){
     }
 
     free(tabuleiro);
+}
+
+void comandos(Fila *f, int **tabuleiro, int fase){
+
+    Comando c;
+    int op;
+
+    do{
+
+    system("cls||clear");
+
+    show_fase(tabuleiro, fase);
+
+    printf("\nEntre com o comando que deseja inserir na fila: ");
+    scanf("%d", &c.comando);
+    getchar();
+
+    printf("\nEntre com a quantidade de vezes que voce deseja realizar esse comando: ");
+    scanf("%d", &c.repeticoes);
+    getchar();
+
+    enfileirar(f, &c);
+
+    printf("\nDeseja inserir mais algum comando na fila? Caso sim, digite '1', caso nao, digite '0': ");
+    scanf("%d", &op);
+    getchar();
+
+    }while(op != 0);
 }

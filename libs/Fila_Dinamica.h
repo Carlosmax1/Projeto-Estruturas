@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "NO.h"
 
 //Estrutura da fila
@@ -28,13 +26,13 @@ int fila_vazia(Fila *ptrF){
 }
 
 //enfileirar na fila
-void enfileirar(Fila *ptr, Comando elem){
+void enfileirar(Fila *ptr, Comando *elem){
 
     NO* novo;
     novo = alocarNO();
 
     if(novo != NULL){
-        novo->info = elem;
+        novo->info = *elem;
         novo->prox = NULL;
         if(fila_vazia(ptr)){
             ptr->inicio = novo;
