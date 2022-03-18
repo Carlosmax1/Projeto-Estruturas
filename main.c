@@ -5,29 +5,33 @@ int main (){
     int **tabuleiro;
     Player *jg;
     Fila *f;
+    Tentativa *t;
 
     f = (Fila*) malloc (sizeof(Fila));
     jg = (Player*) malloc (sizeof(Player));
+    t = (Tentativa*) malloc (sizeof(Tentativa));
 
     iniciar_fila(f);
 
-    jg->pos1 = 0;
-    jg->pos2 = 0;
-    jg->direcao = 1;
+    t->fases = 1;
+    t->tentativa = 3;
 
-    //Inicio do tabuleiro 1
     system("cls||clear");
 
-    tabuleiro = criar_tabuleiro();
-
-    preenche_tabuleiro(tabuleiro, 1);
-    comandos(f, tabuleiro, 1);
-    move_player(tabuleiro, jg, f);
-    //atualizar_tabuleiro(tabuleiro, jg);
-    desalocar_tabuleiro(tabuleiro);
-
+    while(t->fases < 3){
+        jg->pos1 = 0;
+        jg->pos2 = 0;
+        jg->direcao = 1;
+        tabuleiro = criar_tabuleiro();
+        preenche_tabuleiro(tabuleiro, t->fases);
+        comandos(f, tabuleiro, t->fases);
+        Fase1(tabuleiro, jg, f, t);
+        desalocar_tabuleiro(tabuleiro);
+    }
+    
     free(jg);
     free(f);
+    free(t);
 
     return 0;
 }
