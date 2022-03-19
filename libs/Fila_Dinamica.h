@@ -1,10 +1,10 @@
-#include "NO.h"
+#include "NO_Fila.h"
 
 //Estrutura da fila
 typedef struct sFila{
 
-    NO *inicio;
-    NO *fim;
+    NOf *inicio;
+    NOf *fim;
 
 }Fila;
 
@@ -26,9 +26,9 @@ int fila_vazia(Fila *ptrF){
 }
 
 //enfileirar na fila
-void enfileirar(Fila *ptr, Comando *elem){
+void enfileirar(Fila *ptr, ComandoF *elem){
 
-    NO* novo;
+    NOf* novo;
     novo = alocarNO();
 
     if(novo != NULL){
@@ -50,7 +50,7 @@ void exibirnaoclassica(Fila *ptr){
 
     if(!fila_vazia(ptr)){
 
-        NO* aux;
+        NOf* aux;
         aux = ptr->inicio;
 
         printf("\nOs comandos ecolhidos foram: ");

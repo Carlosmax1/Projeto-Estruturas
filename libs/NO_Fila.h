@@ -2,29 +2,29 @@
 #include <stdlib.h>
 
 //Estrutura comando e repetições
-typedef struct sComando{
+typedef struct sComandoF{
 
     int comando;
     int repeticoes;
 
-}Comando;
+}ComandoF;
 
 //Estrutura do nó
 typedef struct sNo{
 
-    Comando info;
+    ComandoF info;
     struct sNo *prox;
 
-}NO;
+}NOf;
 
 //alocar no
-NO* alocarNO(){
+NOf* alocarNO(){
 
-    return (NO*) malloc (sizeof(NO));
+    return (NOf*) malloc (sizeof(NOf));
 }
 
 //desalocar no
-void desalocarNO(NO *q){
+void desalocarNO(NOf *q){
 
     free(q);
 }

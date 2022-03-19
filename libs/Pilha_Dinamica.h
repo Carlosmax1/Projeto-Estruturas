@@ -1,8 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "NO.h"
+#include "NO_Pilha.h"
 
-NO* iniciar(NO **topo){
+NO* inic_pilha(NO **topo){
 
     *topo = NULL;
 }
@@ -15,10 +13,10 @@ int pilha_vazia(NO* ptr){
     return 0;
 }
 
-void empilhar(NO **topo, Comando elem){
+void empilhar(NO **topo, ComandoP elem){
 
     NO *novo;
-    novo = alocarNO();
+    novo = alocarNo();
     if(novo != NULL){
         novo->info = elem;
         novo->prox = *topo;
@@ -37,7 +35,7 @@ void desempilhar(NO** topo){
         aux = *topo;
         *topo = aux->prox;
 
-        desalocarNO(aux);
+        desalocarNo(aux);
     }else{
         printf("Pilha vazia.\n");
     }
