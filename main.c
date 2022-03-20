@@ -16,7 +16,7 @@ int main (){
 
     iniciar_fila(f);
 
-    t->fases = 2;
+    t->fases = 1;
     t->tentativa = 3;
 
     system("cls||clear");
