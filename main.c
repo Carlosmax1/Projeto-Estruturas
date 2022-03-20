@@ -15,9 +15,8 @@ int main (){
     t = (Tentativa*) malloc (sizeof(Tentativa));
 
     iniciar_fila(f);
-    inic_pilha(&s);
 
-    t->fases = 3;
+    t->fases = 2;
     t->tentativa = 3;
 
     system("cls||clear");
@@ -32,7 +31,7 @@ int main (){
             comandos_fila(f, tabuleiro, t->fases);
             Fase1(tabuleiro, jg, f, t);
         }else if(t->fases == 2){
-
+            inic_pilha(&s);
             do{
 
                 system("cls||clear");
@@ -86,6 +85,8 @@ int main (){
 
             }while(op != 0);
             fase3_2(tabuleiro, jg, s, t);
+            free(s);
+            s = NULL;
         }
         desalocar_tabuleiro(tabuleiro);
     }
