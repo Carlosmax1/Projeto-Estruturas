@@ -888,9 +888,11 @@ void Fase3(int **tabuleiro, Player *jg, Fila *ptr, Tentativa *t){
         if(jg->direcao == 1){
           jg->direcao = jg->direcao + 3 ;
           for(j = 0; j < 3; j++){
-            if(tabuleiro[jg->pos1-1][jg->pos2] != obstaculo){
-              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-              jg->pos1 = jg->pos1 - 1;
+            if(!saiu_tabuleiro(tabuleiro,jg)){
+              if(tabuleiro[jg->pos1-1][jg->pos2] != obstaculo){
+                tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+                jg->pos1 = jg->pos1 - 1;
+              }
             }
           }
           system("cls||clear");
@@ -899,9 +901,11 @@ void Fase3(int **tabuleiro, Player *jg, Fila *ptr, Tentativa *t){
         }else if(jg->direcao == 2){
           jg->direcao = jg->direcao - 1 ;
           for(j = 0; j < 3; j++){
-            if(tabuleiro[jg->pos1][jg->pos2+1] != obstaculo){
-              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-              jg->pos2 = jg->pos2 + 1;
+            if(!saiu_tabuleiro(tabuleiro,jg)){
+              if(tabuleiro[jg->pos1][jg->pos2+1] != obstaculo){
+                tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+                jg->pos2 = jg->pos2 + 1;
+              }
             }
           }
           system("cls||clear");
@@ -910,9 +914,11 @@ void Fase3(int **tabuleiro, Player *jg, Fila *ptr, Tentativa *t){
         }else if(jg->direcao == 3){
           jg->direcao = jg->direcao - 1 ;
           for(j = 0; j < 3; j++){
-            if(tabuleiro[jg->pos1+1][jg->pos2] != obstaculo){
-              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-              jg->pos1 = jg->pos1 + 1;       
+            if(!saiu_tabuleiro(tabuleiro,jg)){
+              if(tabuleiro[jg->pos1+1][jg->pos2] != obstaculo){
+                tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+                jg->pos1 = jg->pos1 + 1;       
+              }
             }
           }
           system("cls||clear");
@@ -921,9 +927,11 @@ void Fase3(int **tabuleiro, Player *jg, Fila *ptr, Tentativa *t){
         }else if(jg->direcao == 4){
           jg->direcao = jg->direcao - 1 ;
           for(j = 0; j < 3; j++){
-            if(tabuleiro[jg->pos1][jg->pos2-1] != obstaculo){
-              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-              jg->pos2 = jg->pos2 - 1;
+            if(!saiu_tabuleiro(tabuleiro,jg)){
+              if(tabuleiro[jg->pos1][jg->pos2-1] != obstaculo){
+                tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+                jg->pos2 = jg->pos2 - 1;
+              }
             }
           }
           system("cls||clear");
@@ -939,9 +947,11 @@ void Fase3(int **tabuleiro, Player *jg, Fila *ptr, Tentativa *t){
         atualizar_tabuleiro(tabuleiro, jg);
         if(jg->direcao == 1){
           for(j = 0; j < 3; j++){
-            if(tabuleiro[jg->pos1][jg->pos2+1] != obstaculo){
-              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-              jg->pos2 = jg->pos2 + 1;
+            if(!saiu_tabuleiro(tabuleiro,jg)){
+              if(tabuleiro[jg->pos1][jg->pos2+1] != obstaculo){
+                tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+                jg->pos2 = jg->pos2 + 1;
+              }
             }
           }
           jg->direcao = jg->direcao + 3;
@@ -950,9 +960,11 @@ void Fase3(int **tabuleiro, Player *jg, Fila *ptr, Tentativa *t){
           atualizar_tabuleiro(tabuleiro, jg);
         }else if(jg->direcao == 2){
           for(j = 0; j < 3; j++){
-            if(tabuleiro[jg->pos1+1][jg->pos2] != obstaculo){
-              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-              jg->pos1 = jg->pos1 + 1;       
+            if(!saiu_tabuleiro(tabuleiro,jg)){
+              if(tabuleiro[jg->pos1+1][jg->pos2] != obstaculo){
+                tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+                jg->pos1 = jg->pos1 + 1;       
+              }
             }
           }
           jg->direcao = jg->direcao - 1;
@@ -961,9 +973,11 @@ void Fase3(int **tabuleiro, Player *jg, Fila *ptr, Tentativa *t){
           atualizar_tabuleiro(tabuleiro, jg);
         }else if(jg->direcao == 3){
           for(j = 0; j < 3; j++){
-            if(tabuleiro[jg->pos1][jg->pos2-1] != obstaculo){
-              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-              jg->pos2 = jg->pos2 - 1;
+            if(!saiu_tabuleiro(tabuleiro,jg)){
+              if(tabuleiro[jg->pos1][jg->pos2-1] != obstaculo){
+                tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+                jg->pos2 = jg->pos2 - 1;
+              }
             }
           }
           jg->direcao = jg->direcao - 1;
@@ -972,10 +986,12 @@ void Fase3(int **tabuleiro, Player *jg, Fila *ptr, Tentativa *t){
           atualizar_tabuleiro(tabuleiro, jg);
         }else if(jg->direcao == 4){
           for(j = 0; j < 3; j++){
-            if(tabuleiro[jg->pos1-1][jg->pos2] != obstaculo){
-              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-              jg->pos1 = jg->pos1 - 1;
-            }
+            if(!saiu_tabuleiro(tabuleiro,jg)){
+              if(tabuleiro[jg->pos1-1][jg->pos2] != obstaculo){
+                tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+                jg->pos1 = jg->pos1 - 1;
+              }
+            } 
           }
           jg->direcao = jg->direcao - 1;
           system("cls||clear");
@@ -990,56 +1006,72 @@ void Fase3(int **tabuleiro, Player *jg, Fila *ptr, Tentativa *t){
         atualizar_tabuleiro(tabuleiro, jg);
         if(jg->direcao == 1){
           jg->direcao = jg->direcao + 1;
-          if(tabuleiro[jg->pos1+1][jg->pos2] != obstaculo){
-            tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-            jg->pos1 = jg->pos1 + 1;       
+          if(!saiu_tabuleiro(tabuleiro,jg)){
+            if(tabuleiro[jg->pos1+1][jg->pos2] != obstaculo){
+              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+              jg->pos1 = jg->pos1 + 1;       
+            }
           }
           jg->direcao = jg->direcao - 1;
-          if(tabuleiro[jg->pos1][jg->pos2+1] != obstaculo){
-            tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-            jg->pos2 = jg->pos2 + 1;
+          if(!saiu_tabuleiro(tabuleiro,jg)){
+            if(tabuleiro[jg->pos1][jg->pos2+1] != obstaculo){
+              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+              jg->pos2 = jg->pos2 + 1;
+            }
           }
           system("cls||clear");
           exibir_direcao(jg, t);
           atualizar_tabuleiro(tabuleiro, jg);
         }else if(jg->direcao == 2){
           jg->direcao = jg->direcao + 1;
-          if(tabuleiro[jg->pos1][jg->pos2-1] != obstaculo){
-            tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-            jg->pos2 = jg->pos2 - 1;
+          if(!saiu_tabuleiro(tabuleiro,jg)){
+            if(tabuleiro[jg->pos1][jg->pos2-1] != obstaculo){
+              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+              jg->pos2 = jg->pos2 - 1;
+            }
           }
           jg->direcao = jg->direcao - 1;
-          if(tabuleiro[jg->pos1+1][jg->pos2] != obstaculo){
-            tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-            jg->pos1 = jg->pos1 + 1;       
+          if(!saiu_tabuleiro(tabuleiro,jg)){
+            if(tabuleiro[jg->pos1+1][jg->pos2] != obstaculo){
+              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+              jg->pos1 = jg->pos1 + 1;       
+            }
           }
           system("cls||clear");
           exibir_direcao(jg, t);
           atualizar_tabuleiro(tabuleiro, jg);
         }else if(jg->direcao == 3){
           jg->direcao = jg->direcao + 1;
-          if(tabuleiro[jg->pos1-1][jg->pos2] != obstaculo){
-            tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-            jg->pos1 = jg->pos1 - 1;
+          if(!saiu_tabuleiro(tabuleiro,jg)){
+            if(tabuleiro[jg->pos1-1][jg->pos2] != obstaculo){
+              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+              jg->pos1 = jg->pos1 - 1;
+            }
           }
           jg->direcao = jg->direcao - 1;
-          if(tabuleiro[jg->pos1][jg->pos2-1] != obstaculo){
-            tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-            jg->pos2 = jg->pos2 - 1;
+          if(!saiu_tabuleiro(tabuleiro,jg)){
+            if(tabuleiro[jg->pos1][jg->pos2-1] != obstaculo){
+              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+              jg->pos2 = jg->pos2 - 1;
+            }
           }
           system("cls||clear");
           exibir_direcao(jg, t);
           atualizar_tabuleiro(tabuleiro, jg);
         }else if(jg->direcao == 4){
           jg->direcao = jg->direcao - 4;
-          if(tabuleiro[jg->pos1][jg->pos2+1] != obstaculo){
-            tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-            jg->pos2 = jg->pos2 + 1;
+          if(!saiu_tabuleiro(tabuleiro,jg)){
+            if(tabuleiro[jg->pos1][jg->pos2+1] != obstaculo){
+              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+              jg->pos2 = jg->pos2 + 1;
+            }
           }
           jg->direcao = jg->direcao - 1;
-          if(tabuleiro[jg->pos1][jg->pos2-1] != obstaculo){
-            tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-            jg->pos2 = jg->pos2 - 1;
+          if(!saiu_tabuleiro(tabuleiro,jg)){
+            if(tabuleiro[jg->pos1][jg->pos2-1] != obstaculo){
+              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+              jg->pos2 = jg->pos2 - 1;
+            }
           }
           system("cls||clear");
           exibir_direcao(jg, t);
@@ -1054,9 +1086,11 @@ void Fase3(int **tabuleiro, Player *jg, Fila *ptr, Tentativa *t){
         if(jg->direcao == 1){
           jg->direcao = jg->direcao + 1;
           for(j = 0; j < 3; j++){
-            if(tabuleiro[jg->pos1+1][jg->pos2] != obstaculo){
-              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-              jg->pos1 = jg->pos1 + 1;       
+            if(!saiu_tabuleiro(tabuleiro,jg)){
+              if(tabuleiro[jg->pos1+1][jg->pos2] != obstaculo){
+                tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+                jg->pos1 = jg->pos1 + 1;       
+              }
             }
           }
           system("cls||clear");
@@ -1065,9 +1099,11 @@ void Fase3(int **tabuleiro, Player *jg, Fila *ptr, Tentativa *t){
         }else if(jg->direcao == 2){
           jg->direcao = jg->direcao + 1;
           for(j = 0; j < 3; j++){
-            if(tabuleiro[jg->pos1][jg->pos2-1] != obstaculo){
-              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-              jg->pos2 = jg->pos2 - 1;
+            if(!saiu_tabuleiro(tabuleiro,jg)){
+              if(tabuleiro[jg->pos1][jg->pos2-1] != obstaculo){
+                tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+                jg->pos2 = jg->pos2 - 1;
+              }
             }
           }
           system("cls||clear");
@@ -1076,9 +1112,11 @@ void Fase3(int **tabuleiro, Player *jg, Fila *ptr, Tentativa *t){
         }else if(jg->direcao == 3){
           jg->direcao = jg->direcao + 1;
           for(j = 0; j < 3; j++){
-            if(tabuleiro[jg->pos1-1][jg->pos2] != obstaculo){
-              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-              jg->pos1 = jg->pos1 - 1;
+            if(!saiu_tabuleiro(tabuleiro,jg)){
+              if(tabuleiro[jg->pos1-1][jg->pos2] != obstaculo){
+                tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+                jg->pos1 = jg->pos1 - 1;
+              }
             }
           }
           system("cls||clear");
@@ -1087,9 +1125,11 @@ void Fase3(int **tabuleiro, Player *jg, Fila *ptr, Tentativa *t){
         }else if(jg->direcao == 4){
           jg->direcao = jg->direcao - 3;
           for(j = 0; j < 3; j++){
-            if(tabuleiro[jg->pos1][jg->pos2+1] != obstaculo){
-              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-              jg->pos2 = jg->pos2 + 1;
+            if(!saiu_tabuleiro(tabuleiro,jg)){
+              if(tabuleiro[jg->pos1][jg->pos2+1] != obstaculo){
+                tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+                jg->pos2 = jg->pos2 + 1;
+              }
             }
           }
           system("cls||clear");
@@ -1120,9 +1160,11 @@ void fase3_2(int **tabuleiro, Player *jg, NO *topo, Tentativa *t){
         if(jg->direcao == 1){
           jg->direcao = jg->direcao + 3 ;
           for(j = 0; j < 3; j++){
-            if(tabuleiro[jg->pos1-1][jg->pos2] != obstaculo){
-              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-              jg->pos1 = jg->pos1 - 1;
+            if(!saiu_tabuleiro(tabuleiro,jg)){
+              if(tabuleiro[jg->pos1-1][jg->pos2] != obstaculo){
+                tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+                jg->pos1 = jg->pos1 - 1;
+              }
             }
           }
           system("cls||clear");
@@ -1131,9 +1173,11 @@ void fase3_2(int **tabuleiro, Player *jg, NO *topo, Tentativa *t){
         }else if(jg->direcao == 2){
           jg->direcao = jg->direcao - 1 ;
           for(j = 0; j < 3; j++){
-            if(tabuleiro[jg->pos1][jg->pos2+1] != obstaculo){
-              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-              jg->pos2 = jg->pos2 + 1;
+            if(!saiu_tabuleiro(tabuleiro,jg)){
+              if(tabuleiro[jg->pos1][jg->pos2+1] != obstaculo){
+                tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+                jg->pos2 = jg->pos2 + 1;
+              }
             }
           }
           system("cls||clear");
@@ -1142,9 +1186,11 @@ void fase3_2(int **tabuleiro, Player *jg, NO *topo, Tentativa *t){
         }else if(jg->direcao == 3){
           jg->direcao = jg->direcao - 1 ;
           for(j = 0; j < 3; j++){
-            if(tabuleiro[jg->pos1+1][jg->pos2] != obstaculo){
-              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-              jg->pos1 = jg->pos1 + 1;       
+            if(!saiu_tabuleiro(tabuleiro,jg)){
+              if(tabuleiro[jg->pos1+1][jg->pos2] != obstaculo){
+                tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+                jg->pos1 = jg->pos1 + 1;       
+              }
             }
           }
           system("cls||clear");
@@ -1153,9 +1199,11 @@ void fase3_2(int **tabuleiro, Player *jg, NO *topo, Tentativa *t){
         }else if(jg->direcao == 4){
           jg->direcao = jg->direcao - 1 ;
           for(j = 0; j < 3; j++){
-            if(tabuleiro[jg->pos1][jg->pos2-1] != obstaculo){
-              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-              jg->pos2 = jg->pos2 - 1;
+            if(!saiu_tabuleiro(tabuleiro,jg)){
+              if(tabuleiro[jg->pos1][jg->pos2-1] != obstaculo){
+                tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+                jg->pos2 = jg->pos2 - 1;
+              }
             }
           }
           system("cls||clear");
@@ -1171,9 +1219,11 @@ void fase3_2(int **tabuleiro, Player *jg, NO *topo, Tentativa *t){
         atualizar_tabuleiro(tabuleiro, jg);
         if(jg->direcao == 1){
           for(j = 0; j < 3; j++){
-            if(tabuleiro[jg->pos1][jg->pos2+1] != obstaculo){
-              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-              jg->pos2 = jg->pos2 + 1;
+            if(!saiu_tabuleiro(tabuleiro,jg)){
+              if(tabuleiro[jg->pos1][jg->pos2+1] != obstaculo){
+                tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+                jg->pos2 = jg->pos2 + 1;
+              }
             }
           }
           system("cls||clear");
@@ -1181,9 +1231,11 @@ void fase3_2(int **tabuleiro, Player *jg, NO *topo, Tentativa *t){
           atualizar_tabuleiro(tabuleiro, jg);
         }else if(jg->direcao == 2){
           for(j = 0; j < 3; j++){
-            if(tabuleiro[jg->pos1+1][jg->pos2] != obstaculo){
-              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-              jg->pos1 = jg->pos1 + 1;       
+            if(!saiu_tabuleiro(tabuleiro,jg)){
+              if(tabuleiro[jg->pos1+1][jg->pos2] != obstaculo){
+                tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+                jg->pos1 = jg->pos1 + 1;       
+              }
             }
           }
           system("cls||clear");
@@ -1191,9 +1243,11 @@ void fase3_2(int **tabuleiro, Player *jg, NO *topo, Tentativa *t){
           atualizar_tabuleiro(tabuleiro, jg);
         }else if(jg->direcao == 3){
           for(j = 0; j < 3; j++){
-            if(tabuleiro[jg->pos1][jg->pos2-1] != obstaculo){
-              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-              jg->pos2 = jg->pos2 - 1;
+            if(!saiu_tabuleiro(tabuleiro,jg)){
+              if(tabuleiro[jg->pos1][jg->pos2-1] != obstaculo){
+                tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+                jg->pos2 = jg->pos2 - 1;
+              }
             }
           }
           system("cls||clear");
@@ -1201,9 +1255,11 @@ void fase3_2(int **tabuleiro, Player *jg, NO *topo, Tentativa *t){
           atualizar_tabuleiro(tabuleiro, jg);
         }else if(jg->direcao == 4){
           for(j = 0; j < 3; j++){
-            if(tabuleiro[jg->pos1-1][jg->pos2] != obstaculo){
-              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-              jg->pos1 = jg->pos1 - 1;
+            if(!saiu_tabuleiro(tabuleiro,jg)){
+              if(tabuleiro[jg->pos1-1][jg->pos2] != obstaculo){
+                tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+                jg->pos1 = jg->pos1 - 1;
+              }
             }
           }
           system("cls||clear");
@@ -1218,56 +1274,72 @@ void fase3_2(int **tabuleiro, Player *jg, NO *topo, Tentativa *t){
         atualizar_tabuleiro(tabuleiro, jg);
         if(jg->direcao == 1){
           jg->direcao = jg->direcao + 1;
-          if(tabuleiro[jg->pos1+1][jg->pos2] != obstaculo){
-            tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-            jg->pos1 = jg->pos1 + 1;       
+          if(!saiu_tabuleiro(tabuleiro,jg)){
+            if(tabuleiro[jg->pos1+1][jg->pos2] != obstaculo){
+              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+              jg->pos1 = jg->pos1 + 1;       
+            }
           }
           jg->direcao = jg->direcao - 1;
-          if(tabuleiro[jg->pos1][jg->pos2+1] != obstaculo){
-            tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-            jg->pos2 = jg->pos2 + 1;
+          if(!saiu_tabuleiro(tabuleiro,jg)){
+            if(tabuleiro[jg->pos1][jg->pos2+1] != obstaculo){
+              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+              jg->pos2 = jg->pos2 + 1;
+            }
           }
           system("cls||clear");
           exibir_direcao(jg, t);
           atualizar_tabuleiro(tabuleiro, jg);
         }else if(jg->direcao == 2){
           jg->direcao = jg->direcao + 1;
-          if(tabuleiro[jg->pos1][jg->pos2-1] != obstaculo){
-            tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-            jg->pos2 = jg->pos2 - 1;
+          if(!saiu_tabuleiro(tabuleiro,jg)){
+            if(tabuleiro[jg->pos1][jg->pos2-1] != obstaculo){
+              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+              jg->pos2 = jg->pos2 - 1;
+            }
           }
           jg->direcao = jg->direcao - 1;
-          if(tabuleiro[jg->pos1+1][jg->pos2] != obstaculo){
-            tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-            jg->pos1 = jg->pos1 + 1;       
+          if(!saiu_tabuleiro(tabuleiro,jg)){
+            if(tabuleiro[jg->pos1+1][jg->pos2] != obstaculo){
+              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+              jg->pos1 = jg->pos1 + 1;       
+            }
           }
           system("cls||clear");
           exibir_direcao(jg, t);
           atualizar_tabuleiro(tabuleiro, jg);
         }else if(jg->direcao == 3){
           jg->direcao = jg->direcao + 1;
-          if(tabuleiro[jg->pos1-1][jg->pos2] != obstaculo){
-            tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-            jg->pos1 = jg->pos1 - 1;
+          if(!saiu_tabuleiro(tabuleiro,jg)){
+            if(tabuleiro[jg->pos1-1][jg->pos2] != obstaculo){
+              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+              jg->pos1 = jg->pos1 - 1;
+            }
           }
           jg->direcao = jg->direcao - 1;
-          if(tabuleiro[jg->pos1][jg->pos2-1] != obstaculo){
-            tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-            jg->pos2 = jg->pos2 - 1;
+          if(!saiu_tabuleiro(tabuleiro,jg)){
+            if(tabuleiro[jg->pos1][jg->pos2-1] != obstaculo){
+              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+              jg->pos2 = jg->pos2 - 1;
+            }
           }
           system("cls||clear");
           exibir_direcao(jg, t);
           atualizar_tabuleiro(tabuleiro, jg);
         }else if(jg->direcao == 4){
           jg->direcao = jg->direcao - 4;
-          if(tabuleiro[jg->pos1][jg->pos2+1] != obstaculo){
-            tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-            jg->pos2 = jg->pos2 + 1;
+          if(!saiu_tabuleiro(tabuleiro,jg)){
+            if(tabuleiro[jg->pos1][jg->pos2+1] != obstaculo){
+              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+              jg->pos2 = jg->pos2 + 1;
+            }
           }
           jg->direcao = jg->direcao - 1;
-          if(tabuleiro[jg->pos1][jg->pos2-1] != obstaculo){
-            tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-            jg->pos2 = jg->pos2 - 1;
+          if(!saiu_tabuleiro(tabuleiro,jg)){
+            if(tabuleiro[jg->pos1][jg->pos2-1] != obstaculo){
+              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+              jg->pos2 = jg->pos2 - 1;
+            }
           }
           system("cls||clear");
           exibir_direcao(jg, t);
@@ -1282,9 +1354,11 @@ void fase3_2(int **tabuleiro, Player *jg, NO *topo, Tentativa *t){
         if(jg->direcao == 1){
           jg->direcao = jg->direcao + 1;
           for(j = 0; j < 3; j++){
-            if(tabuleiro[jg->pos1+1][jg->pos2] != obstaculo){
-              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-              jg->pos1 = jg->pos1 + 1;       
+            if(!saiu_tabuleiro(tabuleiro,jg)){
+              if(tabuleiro[jg->pos1+1][jg->pos2] != obstaculo){
+                tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+                jg->pos1 = jg->pos1 + 1;       
+              }
             }
           }
           system("cls||clear");
@@ -1293,9 +1367,11 @@ void fase3_2(int **tabuleiro, Player *jg, NO *topo, Tentativa *t){
         }else if(jg->direcao == 2){
           jg->direcao = jg->direcao + 1;
           for(j = 0; j < 3; j++){
-            if(tabuleiro[jg->pos1][jg->pos2-1] != obstaculo){
-              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-              jg->pos2 = jg->pos2 - 1;
+            if(!saiu_tabuleiro(tabuleiro,jg)){
+              if(tabuleiro[jg->pos1][jg->pos2-1] != obstaculo){
+                tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+                jg->pos2 = jg->pos2 - 1;
+              }
             }
           }
           system("cls||clear");
@@ -1304,9 +1380,11 @@ void fase3_2(int **tabuleiro, Player *jg, NO *topo, Tentativa *t){
         }else if(jg->direcao == 3){
           jg->direcao = jg->direcao + 1;
           for(j = 0; j < 3; j++){
-            if(tabuleiro[jg->pos1-1][jg->pos2] != obstaculo){
-              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-              jg->pos1 = jg->pos1 - 1;
+            if(!saiu_tabuleiro(tabuleiro,jg)){
+              if(tabuleiro[jg->pos1-1][jg->pos2] != obstaculo){
+                tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+                jg->pos1 = jg->pos1 - 1;
+              }
             }
           }
           system("cls||clear");
@@ -1315,9 +1393,11 @@ void fase3_2(int **tabuleiro, Player *jg, NO *topo, Tentativa *t){
         }else if(jg->direcao == 4){
           jg->direcao = jg->direcao - 3;
           for(j = 0; j < 3; j++){
-            if(tabuleiro[jg->pos1][jg->pos2+1] != obstaculo){
-              tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-              jg->pos2 = jg->pos2 + 1;
+            if(!saiu_tabuleiro(tabuleiro,jg)){
+              if(tabuleiro[jg->pos1][jg->pos2+1] != obstaculo){
+                tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+                jg->pos2 = jg->pos2 + 1;
+              }
             }
           }
           system("cls||clear");
