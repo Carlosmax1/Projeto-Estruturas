@@ -63,32 +63,3 @@ void exibirnaoclassica(Fila *ptr){
         printf("Erro fila vazia.\n");
     }
 }
-
-//exibir fila na forma classica
-/*
-void ExecutarClassica(Fila *ptr){
-
-    if(!fila_vazia(ptr)){
-        
-        NO* aux;
-
-        do{
-            
-            aux = ptr->inicio;
-            ptr->inicio = (ptr->inicio)->prox;
-
-            printf("%d ", aux->info);
-            getchar();
-
-            free(aux);
-
-            printf("\n");
-
-        }while(aux != NULL);
-
-    }else{
-
-        printf("Erro fila vazia.\n");
-    }
-}
-*/
