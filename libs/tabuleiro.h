@@ -389,8 +389,8 @@ void Fase1(int **tabuleiro, Player *jg, Fila *ptr, Tentativa *t){
           }
         }
     }else if(aux->info.comando == 2){
-      if(!saiu_tabuleiro(tabuleiro, jg)){
-          for(i = 0; i < aux->info.repeticoes; i++ ){
+      
+        for(i = 0; i < aux->info.repeticoes; i++ ){
           system("cls||clear");
           exibir_direcao(jg, t);
           atualizar_tabuleiro(tabuleiro, jg);
@@ -467,8 +467,8 @@ void Fase1(int **tabuleiro, Player *jg, Fila *ptr, Tentativa *t){
             exibir_direcao(jg, t);
             atualizar_tabuleiro(tabuleiro, jg);
           }
-        }
       }
+      
       
     }else if(aux->info.comando == 3){
         for(i = 0; i < aux->info.repeticoes; i++ ){
