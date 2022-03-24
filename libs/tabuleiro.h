@@ -471,68 +471,65 @@ void Fase1(int **tabuleiro, Player *jg, Fila *ptr, Tentativa *t){
       }
       
     }else if(aux->info.comando == 3){
-      if(!saiu_tabuleiro(tabuleiro, jg)){
         for(i = 0; i < aux->info.repeticoes; i++ ){
-        system("cls||clear");
-        exibir_direcao(jg, t);
-        atualizar_tabuleiro(tabuleiro, jg);
-        if(jg->direcao == 1){
-          jg->direcao = jg->direcao + 3;
-          for(j = 0; j < 3; j++){
-            if(!saiu_tabuleiro(tabuleiro, jg)){
-              if(tabuleiro[jg->pos1-1][jg->pos2] != obstaculo){
-                tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-                jg->pos1 = jg->pos1 - 1;
-              }
-            }
-          }
           system("cls||clear");
           exibir_direcao(jg, t);
           atualizar_tabuleiro(tabuleiro, jg);
-        }else if(jg->direcao == 2){
-          jg->direcao = jg->direcao - 1;
-          for(j = 0; j < 3; j++){
-            if(!saiu_tabuleiro(tabuleiro,jg)){
-              if(tabuleiro[jg->pos1][jg->pos2+1] != obstaculo){
-                tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-                jg->pos2 = jg->pos2 + 1;
-              }
-            }
-
-          }
-          system("cls||clear");
-          exibir_direcao(jg, t);
-          atualizar_tabuleiro(tabuleiro, jg);
-        }else if(jg->direcao == 3){
-          jg->direcao = jg->direcao - 1;
-          for(j = 0; j < 3; j++){
-            if(!saiu_tabuleiro(tabuleiro,jg)){
-              if(tabuleiro[jg->pos1+1][jg->pos2] != obstaculo){
-                tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-                jg->pos1 = jg->pos1 + 1;
-              }
-            }
-          }
-          system("cls||clear");
-          exibir_direcao(jg, t);
-          atualizar_tabuleiro(tabuleiro, jg);
-        }else if(jg->direcao == 4){
-            jg->direcao = jg->direcao - 1;
+          if(jg->direcao == 1){
+            jg->direcao = jg->direcao + 3;
             for(j = 0; j < 3; j++){
-              if(!saiu_tabuleiro(tabuleiro,jg)){
-                if(tabuleiro[jg->pos1][jg->pos2-1] != obstaculo){
+              if(!saiu_tabuleiro(tabuleiro, jg)){
+                if(tabuleiro[jg->pos1-1][jg->pos2] != obstaculo){
                   tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
-                  jg->pos2 = jg->pos2 - 1;
+                  jg->pos1 = jg->pos1 - 1;
                 }
               }
-
             }
             system("cls||clear");
             exibir_direcao(jg, t);
             atualizar_tabuleiro(tabuleiro, jg);
+          }else if(jg->direcao == 2){
+            jg->direcao = jg->direcao - 1;
+            for(j = 0; j < 3; j++){
+              if(!saiu_tabuleiro(tabuleiro,jg)){
+                if(tabuleiro[jg->pos1][jg->pos2+1] != obstaculo){
+                  tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+                  jg->pos2 = jg->pos2 + 1;
+                }
+              }
+            }
+            system("cls||clear");
+            exibir_direcao(jg, t);
+            atualizar_tabuleiro(tabuleiro, jg);
+          }else if(jg->direcao == 3){
+            jg->direcao = jg->direcao - 1;
+            for(j = 0; j < 3; j++){
+              if(!saiu_tabuleiro(tabuleiro,jg)){
+                if(tabuleiro[jg->pos1+1][jg->pos2] != obstaculo){
+                  tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+                  jg->pos1 = jg->pos1 + 1;
+                }
+              }
+            }
+            system("cls||clear");
+            exibir_direcao(jg, t);
+            atualizar_tabuleiro(tabuleiro, jg);
+          }else if(jg->direcao == 4){
+              jg->direcao = jg->direcao - 1;
+              for(j = 0; j < 3; j++){
+                if(!saiu_tabuleiro(tabuleiro,jg)){
+                  if(tabuleiro[jg->pos1][jg->pos2-1] != obstaculo){
+                    tabuleiro[jg->pos1][jg->pos2] = espaco_vazio;
+                    jg->pos2 = jg->pos2 - 1;
+                  }
+                }
+
+              }
+              system("cls||clear");
+              exibir_direcao(jg, t);
+              atualizar_tabuleiro(tabuleiro, jg);
           }
         }
-      }
     }else{
         for(i = 0; i < aux->info.repeticoes; i++ ){
         system("cls||clear");
